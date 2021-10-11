@@ -16,7 +16,6 @@ jobs:
     - name: Install pip
       run: |
         python -m pip install --upgrade pip
-
     - name: Install Python Virtual Venv
       run: pip3 install virtualenv
 
@@ -28,7 +27,6 @@ jobs:
         key: ${{ runner.os }}-venv-${{ hashFiles('**/requirements*.txt') }}
         restore-keys: |
           ${{ runner.os }}-venv-
-
     - name: Activate Virtual ENV
       run: python -m venv venv && source venv/bin/activate && pip3 install -r requirements.txt
 
