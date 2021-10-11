@@ -1,11 +1,11 @@
-name: AWS Lambda & API gateway deployment on Testing Environment
+name: AWS Lambda & API gateway deployment on Testing Environment (PR)
 
 on:
  pull_request:
   branches:
-   - testing
+   - staging
 jobs:
-  tests-testing:
+  tests-staging:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -36,7 +36,7 @@ jobs:
     # - name: Run Pytest 
     #   run: pytest
 
-  build-testing:
+  build-staging:
     needs: [tests-testing]
     runs-on: ubuntu-latest
     steps:
