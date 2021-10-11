@@ -1,10 +1,10 @@
-name: AWS Lambda & API gateway deployment on Master Environment
+name: AWS Lambda & API gateway deployment on Staging Environment (PR)
 on:
  pull_request:
   branches:
    - master
 jobs:
-  deploy-master:
+  check-staging:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -28,7 +28,7 @@ jobs:
     - name: sam deploy
       uses: youyo/aws-sam-action/python3.8@master
       with:
-          sam_command: 'deploy --stack-name python-stage --config-file samconfig-prod.toml --no-fail-on-empty-changeset'
+          sam_command: 'deploy --stack-name python-stage --config-file samconfig-stage.toml --no-fail-on-empty-changeset'
       env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
