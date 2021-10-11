@@ -1,6 +1,6 @@
 name: AWS Lambda & API gateway deployment on Staging Environment
 on:
- pull_request:
+ push:
   branches:
    - staging
 jobs:
